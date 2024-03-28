@@ -19,10 +19,12 @@ const useUserIdCheck = () => {
         // User ID is not duplicated
         setIsDuplicate(false);
         console.log("사용가능한 아이디입니다.");
+        alert(data);
       } else {
         // User ID is duplicated
         setIsDuplicate(true);
         console.log("사용 불가능한 아이디입니다.");
+        alert(data);
       }
     } catch (error) {
       // Handle network errors or other exceptions
