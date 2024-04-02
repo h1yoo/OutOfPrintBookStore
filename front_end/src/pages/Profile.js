@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
+import { Link } from "react-router-dom";
 import "../styled/Profile.css";
 import "../styled/PurchaseHistory.css";
 import Header from "../components/Header";
@@ -78,7 +79,9 @@ const Profile = () => {
                     <li>
                       <p>배송지11111sadfasdfasdfasdfads</p>
                       <div className="lcm_purHistBtns">
-                        <button>+ 새 배송지 추가</button>
+                        <Link to="/Address" className="lcm_purHistBtns">
+                        <button>새 배송지 추가</button>
+                        </Link>
                         <span>
                           <button>수정</button>
                           <button>삭제</button>
