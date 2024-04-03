@@ -62,7 +62,7 @@ const Header = () => {
             </dt>
             <dt>
               <NavLink
-                to="/mypage"
+                to="/Mypage"
                 className="sbk-menu-item"
                 activeClassName="active"
                 onClick={handleItemClick}
@@ -102,7 +102,7 @@ const Header = () => {
               <img
                 className="sbk-logo-image"
                 alt="로고이미지"
-                src="img/logo.png"
+                src="/img/logo.png" // 이미지 파일의 절대 경로로 수정
               />
             </NavLink>
           </div>
@@ -125,7 +125,8 @@ const Header = () => {
           <dl>
             <dt>
               <NavLink
-                to="/economics"
+                // to="/economics"
+                to="/CategoryBookList"
                 className="sbk-menu-item"
                 activeClassName="active"
                 onClick={handleItemClick}
@@ -135,7 +136,8 @@ const Header = () => {
             </dt>
             <dt>
               <NavLink
-                to="/novels"
+                // to="/novels"
+                to="/CategoryBookList"
                 className="sbk-menu-item"
                 activeClassName="active"
                 onClick={handleItemClick}
@@ -145,7 +147,8 @@ const Header = () => {
             </dt>
             <dt>
               <NavLink
-                to="/comics"
+                // to="/comics"
+                to="/CategoryBookList"
                 className="sbk-menu-item"
                 activeClassName="active"
                 onClick={handleItemClick}
@@ -155,7 +158,8 @@ const Header = () => {
             </dt>
             <dt>
               <NavLink
-                to="/arts"
+                // to="/arts"
+                to="/CategoryBookList"
                 className="sbk-menu-item"
                 activeClassName="active"
                 onClick={handleItemClick}
@@ -165,7 +169,8 @@ const Header = () => {
             </dt>
             <dt>
               <NavLink
-                to="/science"
+                // to="/science"
+                to="/CategoryBookList"
                 className="sbk-menu-item"
                 activeClassName="active"
                 onClick={handleItemClick}
@@ -175,7 +180,8 @@ const Header = () => {
             </dt>
             <dt>
               <NavLink
-                to="/essays"
+                // to="/essays"
+                to="/CategoryBookList"
                 className="sbk-menu-item"
                 activeClassName="active"
                 onClick={handleItemClick}

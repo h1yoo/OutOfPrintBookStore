@@ -11,7 +11,7 @@ function QnASide() {
                     <ul className="snb_menu">
                         {/* href 부분 이름 다 기획안 보고 수정하기 */}
                         <li className="menu_item">
-                            <Link to="./FormView" className="menu_link">QnA</Link>
+                            <Link to="/QuestionForm" className="menu_link">QnA</Link>
                         </li>
                     </ul>
                 </div>

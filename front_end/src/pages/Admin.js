@@ -11,7 +11,7 @@ function Admin() {
     <div className='jyh-container'>
       <header className='jyh-header'>
         <img src={logo} className="jyh-App-logo" alt="logo" />
-        <a href='https://www.naver.com' className='jyh-back-main'>돌아가기</a>
+        <a href='/' className='jyh-back-main'>돌아가기</a>
       </header>
       <div className='jyh-contents'>
         <p className='jyh-admintitle'>관리자 페이지</p>

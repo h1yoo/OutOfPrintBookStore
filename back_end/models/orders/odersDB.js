@@ -63,6 +63,26 @@ exports.getUserOrders = (custKey) => {
   });
 };
 
+// 주문 날짜별 주문 수와 매출액 조회 (Read)
+exports.getOrderSummaryByDate = () => {
+  return new Promise((resolve, reject) => {
+    db.query(
+      `SELECT 
+        dateBuy AS orderDate, 
+        COUNT(*) AS orderCount, 
+        SUM(price) AS totalSales 
+      FROM 
+        orders 
+      GROUP BY 
+        dateBuy`,
+      (err, result) => {
+        if (err) reject(err);
+        else resolve(result);
+      }
+    );
+  });
+};
+
 // 주문 업데이트 (Update)
 exports.updateOrder = (itemKey, updatedOrderData) => {
   return new Promise((resolve, reject) => {
@@ -88,3 +108,7 @@ exports.deleteOrder = (itemKey) => {
     });
   });
 };
+
+
+
+

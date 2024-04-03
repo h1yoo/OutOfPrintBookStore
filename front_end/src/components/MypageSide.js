@@ -12,17 +12,17 @@ function MyPageSide() {
           <ul className="snb_menu">
             {/* href 부분 이름 다 기획안 보고 수정하기 */}
             <li className="menu_item">
-              <Link to="/PurchaseHistory" className="menu_link">
+              <Link to="/Mypage/PurchaseHistory" className="menu_link">
                 구매내역
               </Link>
             </li>
             <li className="menu_item">
-              <Link to="/SalesHistory" className="menu_link">
+              <Link to="/Mypage/SalesHistory" className="menu_link">
                 판매내역
               </Link>
             </li>
             <li className="menu_item">
-              <Link to="/RegRequest" className="menu_link">
+              <Link to="/Mypage/RegRequest" className="menu_link">
                 구매 희망 도서
               </Link>
             </li>
@@ -33,12 +33,12 @@ function MyPageSide() {
           <ul className="snb_menu">
             {/* href 부분 이름 다 기획안 보고 수정하기 */}
             <li className="menu_item">
-              <Link to="/profile" className="menu_link">
+              <Link to="/Mypage/Profile" className="menu_link">
                 로그인 정보
               </Link>
             </li>
             <li className="menu_item">
-              <Link to="/Rank" className="menu_link">
+              <Link to="/Mypage/Rank" className="menu_link">
                 판매자 등급
               </Link>
             </li>

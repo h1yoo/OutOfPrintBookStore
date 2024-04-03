@@ -82,6 +82,8 @@ router.post("/createOrder", orders.createOrder);
 router.get("/getAllOrders", orders.getAllOrders);
 // 특정 사용자의 모든 주문 조회
 router.get("/getUserOrders/:custKey", orders.getUserOrders);
+// 날짜별 주문 조회
+router.get("/getOrderSummaryByDate", orders.getOrderSummaryByDate)
 // 주문 업데이트
 router.put("/updateOrder/:itemKey", orders.updateOrder);
 // 주문 삭제

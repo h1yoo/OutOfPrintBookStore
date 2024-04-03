@@ -2,6 +2,10 @@
   padding-left: 5%;
   width: fit-content;
 }
+.yhw_defShippingInfoBox > div {
+  display: flex;
+  flex-direction: column;
+}
 .yhw_defShippingInfoBox > span {
   font-size: 14px;
   font-weight: medium;

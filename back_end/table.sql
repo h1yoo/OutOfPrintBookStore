@@ -1,5 +1,5 @@
 CREATE DATABASE bookDB;
-USE DATABASE bookDB;
+
 
 CREATE TABLE `customers` (
     `custKey` INT AUTO_INCREMENT PRIMARY KEY,
@@ -38,6 +38,17 @@ CREATE TABLE `buyerBook` (
     `aucStatus` INT NOT NULL DEFAULT 0 COMMENT '낙찰(1)//진행중(2)/기한만료(3)/취소(삭제)',
     FOREIGN KEY (`custKey`) REFERENCES `customers` (`custKey`)
 );
+
+ALTER TABLE `buyerbook` ADD COLUMN dateBuyerBook DATE NOT NULL;
+-- date에 자동으로 오늘 날짜로 채우기
+CREATE TRIGGER set_default_date_buyerBook BEFORE INSERT ON buyerBook
+FOR EACH ROW
+BEGIN
+    IF NEW.dateBuyerBook IS NULL THEN
+        SET NEW.dateBuyerBook = CURDATE();
+    END IF;
+END;
+
 CREATE TABLE `SellerBook` (
     `itemSellKey` INT AUTO_INCREMENT PRIMARY KEY COMMENT 'PK(판매희망도서)',
     `itemBuyKey` INT NOT NULL COMMENT 'FK(구매희망도서)',
@@ -131,7 +142,7 @@ CREATE TABLE `reply` (
     `replayKey` INT AUTO_INCREMENT PRIMARY KEY,
     `boardKey` INT NOT NULL,
     `adminKey` INT NOT NULL,
-    `dateReply` INT NOT NULL,
+    `dateReply` DATE NOT NULL,
     `reply` TEXT NOT NULL,
     FOREIGN KEY (`boardKey`) REFERENCES `enquiry` (`boardKey`),
     FOREIGN KEY (`adminKey`) REFERENCES `admin` (`adminKey`)
@@ -145,3 +156,14 @@ BEGIN
         SET NEW.dateReply = CURDATE();
     END IF;
 END;
+
+
+/* --------------------------------------------------------------------- */
+/* INSERT INTO SellerBook (itemBuyKey, custKey, sellerKey, damage, price)
+VALUES (4, 4, 4, 0, 15000); */
+
+
+ALTER TABLE buyerBook
+MODIFY COLUMN aucStatus INT DEFAULT 2,
+MODIFY COLUMN itemImg VARCHAR(255) DEFAULT 'img/book.png';
+

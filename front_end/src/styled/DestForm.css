@@ -2,6 +2,9 @@
   width: 60%;
   margin: 0 auto;
 }
+/* .yhw_destForm > div {
+  border: 2px solid red;
+} */
 .yhw_destFormInputBox { /* 각 label과 input 태그를 담는 div 태그 CSS */
   width: 90%;
   box-sizing: border-box;

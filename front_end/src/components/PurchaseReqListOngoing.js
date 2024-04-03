@@ -17,7 +17,7 @@ const PurchaseReqListOngoing = ({ requests }) => {
     <div>
       {requests.map((request, index) => (
         <div className="sbk-purchase-req-card" key={index}>
-          <img className="sbk-book-image" src={request.image} alt={request.itemTitle} />
+          <img className="sbk-book-image" src={request.itemImg} alt={request.itemTitle} />
           <div className="sbk-text-container">
             <div className='sbk-main-container'>
               <h2 className="sbk-book-title">{request.itemTitle}</h2>
