@@ -12,21 +12,24 @@ const BannerContainer = styled.div`
     justify-content: left;
     align-items: center;
     width: 70vw;
-    height: 5vw;
-    border: 1px black solid;
+    height: 50px;
     margin: auto;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    margin-top: 20px;
 `;
+
+const StyledH3 = styled.h3`
+    margin-left: 50px;
+`;
+
 
 function PurchaseBanner({ selectedBanner }) {
     return (
         <CenteredContainer>
             <BannerContainer>
-                <div>
+                <StyledH3>
                     구매후기 남기기
                     {selectedBanner}
-                </div>
+                </StyledH3>
             </BannerContainer>
         </CenteredContainer>
     );

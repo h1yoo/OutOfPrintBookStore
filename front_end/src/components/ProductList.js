@@ -10,13 +10,11 @@ const CenteredContainer = styled.div`
 const ProductListContainer = styled.div`
     width: 1050px;
     height: 300px;
-    border: 1px black solid;
     display: flex;
     flex-direction: row;
 `;
 
 const ProductImage = styled.div`
-    border: 1px black solid;
     width: 177px;
     height: 268px;
     background: url('/book.jpg');

@@ -22,10 +22,9 @@ const LoginForm = styled.form`
   width: 520px;
   height: 300px;
   padding: 20px;
-  border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #fff;
-  margin-top: 200px;
+  margin-top: 100px;
 `;
 
 const FormGroup = styled.div`

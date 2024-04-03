@@ -23,6 +23,7 @@ import PurchaseReview from "./pages/PurchaseReview";
 import SellBook from "./pages/SellBook"
 import XNotFound from "./pages/XNotFound";
 import Rank from "./pages/Rank";
+import ReviewCreate from "./pages/ReviewCreate";
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
           <Route path="PurchaseReview" element={<PurchaseReview />}></Route>
           <Route path="SellBook" element={<SellBook />}></Route>
           <Route path="Rank" element={<Rank />}></Route>
+          <Route path="ReviewCreate" element={<ReviewCreate />}></Route>
           <Route path="*" element={<XNotFound />}></Route>  {/* Not Found 페이지 */}          
         </Routes>
       </LoginProvider>

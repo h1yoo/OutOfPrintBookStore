@@ -13,7 +13,6 @@ const BannerContainer = styled.div`
     align-items: center;
     width: 70vw;
     height: 5vw;
-    border: 1px black solid;
     margin: auto;
 `;
 
@@ -21,10 +20,10 @@ function CategoryBanner({ selectedCategory }) {
     return (
         <CenteredContainer>
             <BannerContainer>
-                <div>
+                <h3>
                     경영/경제
                     {selectedCategory}
-                </div>
+                </h3>
             </BannerContainer>
         </CenteredContainer>
     );

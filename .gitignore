@@ -21,3 +21,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# 예외 처리할 파일
+# front_end 디렉토리에 있는 .env 파일 무시하지 않음
+!/front_end/.env
+
+# back_end 디렉토리에 있는 .env 파일 무시하지 않음
+!/back_end/.env
