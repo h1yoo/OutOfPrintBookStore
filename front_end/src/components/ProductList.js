@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // ============== Style component ============== //
 const CenteredContainer = styled.div`
   display: flex;
@@ -63,10 +64,20 @@ const SellButton = styled(Link)`
   margin-top: 9px;
   text-decoration: none;
   font-size: 0.9375rem;
+  cursor: pointer;
 `;
 // ============== Style component ============== //
 
 function ProductList(props) {
+  const navigate = useNavigate();
+  const convey = () => {
+    navigate('/SellerInfoPage', {
+      state: {
+        custKey: props.bookList.custKey
+      }
+    });
+  };
+
   return (
     <CenteredContainer>
       <ProductListContainer>
@@ -79,7 +90,7 @@ function ProductList(props) {
               {props.bookList.author} | {props.bookList.publisher}
             </span>
 
-            <span>{props.bookList.nickname}</span>
+            <span style={{cursor: "pointer"}} onClick={convey}>{props.bookList.nickname}</span>
           </ProductInfo>
 
           <PriceTable>
