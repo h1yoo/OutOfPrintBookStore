@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+
 // ============== Style component ============== //
 const CenteredContainer = styled.div`
   display: flex;
@@ -50,7 +51,7 @@ const PriceTable = styled.table`
   align-items: flex-end;
 `;
 
-const SellButton = styled(Link)`
+const SellButton = styled.button`
   width: 160px;
   height: 50px;
   border-radius: 5px;
@@ -62,18 +63,20 @@ const SellButton = styled(Link)`
   margin-left: auto;
   margin-right: 46px;
   margin-top: 9px;
+`;
+const StyledLink = styled(Link)`
   text-decoration: none;
-  font-size: 0.9375rem;
-  cursor: pointer;
+  color: inherit;
 `;
 // ============== Style component ============== //
 
-function ProductList(props) {
+function ProductList({ bookList }) {
+
   const navigate = useNavigate();
   const convey = () => {
     navigate('/SellerInfoPage', {
       state: {
-        custKey: props.bookList.custKey
+        custKey: bookList.custKey
       }
     });
   };
@@ -84,13 +87,13 @@ function ProductList(props) {
         <ProductImage></ProductImage>
         <ProductInfoContainer>
           <ProductInfo>
-            <span>{props.bookList.itemTitle}</span>
+            <span>{bookList.itemTitle}</span>
             <br />
             <span>
-              {props.bookList.author} | {props.bookList.publisher}
+              {bookList.author} | {bookList.publisher}
             </span>
 
-            <span style={{cursor: "pointer"}} onClick={convey}>{props.bookList.nickname}</span>
+            <span style={{ cursor: "pointer" }} onClick={convey}>{bookList.nickname}</span>
           </ProductInfo>
 
           <PriceTable>
@@ -115,10 +118,14 @@ function ProductList(props) {
             </tbody>
           </PriceTable>
         </ProductInfoContainer>
-        <SellButton to="/SellBook">판매하기</SellButton>
+        {/* <SellButton to="/SellBook">판매하기</SellButton> */}
+        <StyledLink to={`/SellBook/${bookList.itemBuyKey}`}>
+          <SellButton>판매하기</SellButton>
+        </StyledLink>
       </ProductListContainer>
     </CenteredContainer>
   );
 }
 
 export default ProductList;
+
