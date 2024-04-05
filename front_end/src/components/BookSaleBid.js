@@ -87,7 +87,9 @@ function BookSaleBid(props) {
     const handleSellBookClick = () => {
         if (agreedToTerms) {
             alert("판매 입찰이 성공적으로 제출되었습니다.");
-            navigate('/MyPage');
+            navigate('/MyPage/SalesHistory');
+            // 판매 완료 도서를 판매내역에 쌓이게 하는 로직 추가 필요
+            
         } else {
             alert("판매 입찰 주의사항에 동의해주세요!");
         }
