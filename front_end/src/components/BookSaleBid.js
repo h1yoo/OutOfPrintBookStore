@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
+import { LoginContext } from "../components/LoginContext";
+import axios from 'axios';
 
 const FlexContainer = styled.div`
     display: flex;
@@ -75,10 +77,30 @@ const PStyle = styled.p`
     margin-left: 10px;
 `;
 
-function BookSaleBid(props) {
+function BookSaleBid() {
     const [selectedConditions, setSelectedConditions] = useState([]);
     const [agreedToTerms, setAgreedToTerms] = useState(false);
+    const [price, setsellerPrice] = useState('');
     const navigate = useNavigate();
+    const { isLoggedIn, loginUser } = useContext(LoginContext);
+
+    // 로그인 정보 가져오는 곳
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:3001/customers/${loginUser}`);
+                const users = response.data;
+                console.log("사용자의 데이터", users);
+
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        };
+
+        if (isLoggedIn && loginUser) {
+            fetchData();
+        }
+    }, [isLoggedIn, loginUser]);
 
     const handleConditionChange = (event) => {
         const value = event.target.value;
@@ -93,12 +115,24 @@ function BookSaleBid(props) {
         setAgreedToTerms(prevState => !prevState);
     };
 
-    const handleSellBookClick = () => {
+    // 입력한 정보 가져오는 곳
+    const handleSellBookClick = async () => {
         if (agreedToTerms) {
-            alert("판매 입찰이 성공적으로 제출되었습니다.");
-            navigate('/MyPage/SalesHistory');
-            // 판매 완료 도서를 판매내역에 쌓이게 하는 로직 추가 필요
-            
+            try {
+                const sellerBookData = {
+                 custKey: loginUser,
+                 damage: selectedConditions.join(', '),
+                 price: price
+                };
+
+                const response = await axios.post('http://localhost:3001/sellerbook',sellerBookData);
+                console.log(response.sellerBookData);
+                alert("판매 입찰이 성공적으로 제출되었습니다.");
+                navigate('/MyPage/SalesHistory');
+
+            } catch (error) {
+                console.error("Error submitting seller bid:", error);
+            }
         } else {
             alert("판매 입찰 주의사항에 동의해주세요!");
         }
@@ -111,8 +145,14 @@ function BookSaleBid(props) {
                     <HopePriceContainer>
                         <HopePrice>
                             <LabelTitle>판매희망가</LabelTitle>
-                            <PriceInputBox type="number" placeholder="금액을 입력하세요" />
-                        </HopePrice>
+                            <PriceInputBox
+                                type="number"
+                                placeholder="금액을 입력하세요"
+                                name="sellerPrice"
+                                value={price}
+                                onChange={(e) => setsellerPrice(e.target.value)}
+                            />                        
+                            </HopePrice>
                         <HopePrice>
                             <LabelTitle>도서 상태</LabelTitle>
                             <ConditionContainer>
