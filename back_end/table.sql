@@ -146,6 +146,8 @@ CREATE TABLE `review` (
     FOREIGN KEY (`sellerKey`) REFERENCES `customers` (`custKey`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+ALTER TABLE review ADD CONSTRAINT unique_itemKey UNIQUE (itemKey);
+
 CREATE TABLE `reply` (
     `replyKey` INT AUTO_INCREMENT PRIMARY KEY,
     `boardKey` INT NOT NULL,
