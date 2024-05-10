@@ -148,9 +148,9 @@ const SignUpMail = () => {
                 />
                 <p
                   className="yhw_passwordCheckMsg"
-                  style={{ color: match === true ? "green" : "red" }}
+                  style={{ color: checkPassword && match && match === true ? "green" : "red" }}
                 >
-                  {match && match === true
+                  {checkPassword && match && match === true
                     ? "비밀번호가 일치합니다."
                     : "비밀번호가 일치하지 않습니다."}
                 </p>
