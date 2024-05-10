@@ -59,7 +59,8 @@
 }
 .yhw_purHistBtns {
   width: fit-content;
-  margin-right: 4vw;
+  margin-right: 1.5vw;
+  margin-left: 0.5vw;
 }
 .yhw_purHistBtns > button {
   background-color: #C87E66;

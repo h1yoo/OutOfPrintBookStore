@@ -94,22 +94,23 @@ const PurchaseHistory = () => {
               <div className="yhw_purHistContentsBox">
                 {/* 구매 정보 표시 */}
                 <ul className="yhw_purHistLists">
-                  {filteredPurLists.map((filteredPurList, index) => (
-                    <li key={index}>
-                      <PurInfoBox
-                        bookData={filteredPurList}
-                        orderBookData={orderBookData[index]} // 주문한 도서 정보 전달
-                      />
-
-                      <div className="yhw_purHistBtns">
-                        {orderBookData.length > 0 && (
+                {filteredPurLists.map((filteredPurList, index) => (
+                  <React.Fragment key={index}>  {/* <></>를 써도 되지만, key를 부여해야 하기 때문에 리액트에서 여러 개의 자식 요소를 감싸기 위해 사용되는 특수한 컴포넌트 사용 */}
+                    {orderBookData[index] && (
+                      <li>
+                        <PurInfoBox
+                          bookData={filteredPurList}
+                          orderBookData={orderBookData[index]} // 주문한 도서 정보 전달
+                        />
+                        <div className="yhw_purHistBtns">
                           <button onClick={() => handleClick(index)}>
                             구매 후기 작성
                           </button>
-                        )}
-                      </div>
-                    </li>
-                  ))}
+                        </div>
+                      </li>
+                    )}
+                  </React.Fragment>
+                ))}
                 </ul>
               </div>
             </div>
